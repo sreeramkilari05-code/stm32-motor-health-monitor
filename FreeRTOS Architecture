@@ -1,0 +1,17 @@
+## FreeRTOS Architecture
+
+The firmware is divided into independent FreeRTOS tasks:
+
+| Task | Function |
+|---|---|
+| `defaultTask` | Default system task |
+| `CurrentTask` | ACS712 current acquisition |
+| `IMUTask` | MPU-6500 vibration acquisition |
+| `DHTTask` | Temperature/humidity acquisition |
+| `MotorTask` | PWM and motor protection control |
+| `CommunicationTask` | UART communication |
+| `ProcessingTask` | Sensor threshold evaluation and health classification |
+
+The ProcessingTask has the highest priority because it is responsible for
+evaluating the motor health state and initiating motor shutdown when a
+critical condition is detected.
