@@ -1,0 +1,41 @@
+
+---
+
+# Protection algorithm
+
+This should be clearly documented because it's one of the main ideas of your project.
+
+```markdown
+## Motor Health Decision Logic
+
+The system evaluates three monitored variables:
+
+- Vibration
+- Current
+- Temperature
+
+Each parameter is classified as:
+
+- NORMAL
+- WARNING
+- CRITICAL
+
+The overall motor state is determined using the following logic:
+
+| Condition | System State |
+|---|---|
+| 0 abnormal parameters | NORMAL |
+| 1 abnormal parameter | NORMAL |
+| 2 abnormal parameters | EMERGENCY |
+| 3 abnormal parameters | MOTOR KILL |
+| Any CRITICAL parameter | MOTOR KILL |
+
+A critical condition from any individual sensor results in an immediate
+motor shutdown.
+
+When a motor-kill condition occurs:
+
+- PWM is set to 0
+- L298N IN1 is driven LOW
+- L298N IN2 is driven LOW
+- Motor operation is stopped
