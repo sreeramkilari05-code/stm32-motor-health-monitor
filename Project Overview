@@ -1,0 +1,26 @@
+
+
+This project is a real-time embedded system designed to monitor the operating
+condition of a DC motor and provide automatic protection against abnormal
+operating conditions.
+
+The system uses an STM32F303RE microcontroller running FreeRTOS to manage
+multiple concurrent tasks for sensor acquisition, motor control,
+communication, and health analysis.
+
+Three primary parameters are monitored:
+
+1. Vibration
+   - MPU-6500 accelerometer
+   - Used to detect abnormal mechanical vibration
+
+2. Current
+   - ACS712 30A current sensor
+   - Used to detect abnormal electrical loading
+
+3. Temperature
+   - DHT11
+   - Used for basic thermal monitoring
+
+The sensor values are compared against configurable thresholds.
+The system then determines the overall motor health state.
