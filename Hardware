@@ -1,0 +1,26 @@
+## Hardware
+
+### Main Controller
+
+- STM32 NUCLEO-F303RE
+
+### Sensors
+
+- MPU-6500 IMU
+- ACS712ELC-30A current sensor
+- DHT11 temperature/humidity sensor
+
+### Motor Control
+
+- L298N dual H-bridge motor driver
+- Small brushed DC hobby motor
+
+### Communication
+
+- UART for serial monitoring
+
+### Power
+
+- External motor power supply
+- STM32 powered independently
+- Common ground between controller and motor-driver system
