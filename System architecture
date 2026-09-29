@@ -1,0 +1,32 @@
+## System Architecture
+
+```text
+                         DC MOTOR
+                            │
+              ┌─────────────┼─────────────┐
+              │             │             │
+              ▼             ▼             ▼
+          MPU-6500       ACS712         DHT11
+          Vibration      Current      Temperature
+              │             │             │
+              ▼             ▼             ▼
+           IMUTask       CurrentTask    DHTTask
+              │             │             │
+              └─────────────┼─────────────┘
+                            ▼
+                     ProcessingTask
+                            │
+                     Threshold Logic
+                            │
+              ┌─────────────┼─────────────┐
+              ▼             ▼             ▼
+           NORMAL       EMERGENCY       KILL
+                                          │
+                                          ▼
+                                      PWM = 0
+                                          │
+                                          ▼
+                                        L298N
+                                          │
+                                          ▼
+                                       MOTOR
